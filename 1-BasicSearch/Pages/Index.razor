@@ -1,0 +1,85 @@
+﻿@page "/"
+
+<PageTitle>Prose Search</PageTitle>
+
+<BSRow>
+    <BSCol Column="12" Padding="Padding.Small">    
+    </BSCol>
+</BSRow>
+
+<EditForm Model="@searchModel" OnValidSubmit="@HandleSearch">
+    <DataAnnotationsValidator />
+    <BSRow>
+        <BSCol Column="6" Padding="Padding.Small">
+            <div class="input-group mb-3">
+                <InputText class="form-control" placeholder="Enter Prose Text" @bind-Value="searchModel.SearchText" />
+                <BSButton type="Submit" Color="BSColor.Primary">Search</BSButton>
+            </div>
+        </BSCol>
+    </BSRow>
+</EditForm>
+
+@if(@SearchText!=String.Empty)
+{
+    <BSRow>
+        <BSCol Column="12">
+            <div class="mb-12">
+                @if(@SearchResultsCount==1)
+                {
+                    <div>@SearchResultsCount Result</div>
+                }
+                else
+                {
+                    <div>@SearchResultsCount Results</div>
+                }
+            </div>
+        </BSCol>
+    </BSRow>
+}
+
+@if(@SearchResultsCount>0)
+{
+    <BSRow>
+        <BSCol Column="12" Padding="Padding.Small">    
+        </BSCol>
+    </BSRow>
+
+    <BSRow>
+        <BSCol Column="9">
+            <div class="mb-9">
+                <BSListGroup>
+                    @foreach (var result in @searchModel.SearchResults)
+                    {
+                        <BSListGroupItem>
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">@result.WaffleHead</h5>
+                            </div>
+                            <p class="mb-1">@result.WaffleBody</p>
+                        </BSListGroupItem>
+                    }
+                </BSListGroup>
+            </div>
+        </BSCol>
+    </BSRow>
+        
+    <BSRow>
+        <BSCol Column="12" Padding="Padding.Large">    
+        </BSCol>
+    </BSRow>
+}
+
+@code {
+    private SearchModel searchModel = new SearchModel();
+    [Parameter]
+    public string SearchText {get; set;} = string.Empty; 
+    [Parameter]
+    public int SearchResultsCount {get; set;} = 0;
+
+    private void HandleSearch()
+    {
+        searchModel.SearchResults = SearchEngine.Search(searchModel.SearchText);
+        searchModel.ResultsCount = searchModel.SearchResults.Count;
+        SearchResultsCount = searchModel.ResultsCount;
+        SearchText = searchModel.SearchText;
+    }
+}
