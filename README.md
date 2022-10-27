@@ -1,1 +1,3 @@
 # dotnet-lucene-search
+
+Dotnet Lucene Search is a [Blazor](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor)-based web application that exposes full text search capability built on top of the [Lucene.Net](https://lucenenet.apache.org/) search engine library. The application was built to fill the void in tutorials focused on command line interaction with Lucene and Blazor web apps focused on database persistence without full text search capabilities.
