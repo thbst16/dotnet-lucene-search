@@ -1,0 +1,6 @@
+version: "3.9"
+services:
+  search:
+    build: .
+    ports:
+        - 8080:80
