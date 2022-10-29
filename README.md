@@ -3,9 +3,26 @@
 ![Docker Image Version (latest by date)](https://img.shields.io/docker/v/thbst16/dotnet-lucene-search?logo=docker)
 ![Uptime Robot ratio (7 days)](https://img.shields.io/uptimerobot/ratio/7/m792951447-6396ddf7ae6c22d19364ee62?logo=http)
 
-Dotnet Lucene Search is a [Blazor](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor)-based web application that exposes full text search capability built on top of the [Lucene.Net](https://lucenenet.apache.org/) search engine library. The application was built to fill the void in tutorials focused on command line interaction with Lucene and Blazor web apps focused on database persistence without full text search capabilities.
+[Dotnet Lucene Search](https://dotnet-lucene-search.azurewebsites.net/) is a [Blazor](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor)-based web application that exposes full text search capability built on top of the [Lucene.Net](https://lucenenet.apache.org/) search engine library. The application was built to fill the void in tutorials focused on command line interaction with Lucene and Blazor web apps focused on database persistence without full text search capabilities.
 
 The repository has 5 sub-projects, each representing a stage of the application buildout, correlating with the steps used to build out the Azure Cognitive search app in [Microsoft's online tutorial](https://learn.microsoft.com/en-us/azure/search/tutorial-csharp-create-first-app).
 
-* <b>Basic Search.</b> Creation of the basic search web application using Lucene.Net with source data seeded using the Bogus synthetic test data library.
-* <b>Results Paging.</b>
+* <b>Basic Search.</b> Creation of the basic search web application using Lucene.Net with waffle text source data seeded using the Bogus synthetic test data library.
+* <b>Results Paging.</b> Coming soon...
+
+# Screens
+
+### Basic Search Page
+![BlazorCrud Home Page](https://s3.amazonaws.com/s3.beckshome.com/20221029-dotnet-lucene-search-basic.jpeg)
+
+# Features
+
+* Web-based full-text search on top of Lucene.Net search engine library
+* Autogeneration of waffle text records using Bogus data generator
+
+# Motivation and Credits
+
+Some starter guides for using Lucene.Net and ideas for this project are attributable to the sources below.
+
+* [How to Implement Lucene.NET](https://code-maze.com/how-to-implement-lucene-dotnet/)
+* [Microsoft Azure Cognitive Search Tutorials](https://learn.microsoft.com/en-us/azure/search/tutorial-csharp-create-first-app)
