@@ -8,7 +8,7 @@ pool:
 
 variables:
   tag: '$(Build.BuildId)'
-  workingDirectory: '$(System.DefaultWorkingDirectory)/2-ResultsPaging'
+  workingDirectory: '$(System.DefaultWorkingDirectory)/2-ResultsPaging/'
 
 stages:
 - stage: Build
