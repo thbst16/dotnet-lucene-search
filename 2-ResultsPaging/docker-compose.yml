@@ -1,6 +1,6 @@
 version: "3.9"
 services:
   search:
-    image: thbst16/dotnet-lucene-search:latest
+    image: thbst16/dotnet-lucene-search:450
     ports:
         - "8080:80"
