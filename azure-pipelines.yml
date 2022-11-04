@@ -55,4 +55,4 @@ stages:
       inputs:
         azureSubscription: azure-connection
         appName: dotnet-lucene-search
-        multicontainerConfigFile: $(workingDirectory)/docker-compose.yml
+        multicontainerConfigFile: $(workingDirectory)/docker-compose-results-paging.yml
