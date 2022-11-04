@@ -14,12 +14,16 @@ The repository has 5 sub-projects, each representing a stage of the application 
 # Screens
 
 ### Basic Search Page
-![BlazorCrud Home Page](https://s3.amazonaws.com/s3.beckshome.com/20221029-dotnet-lucene-search-basic.jpeg)
+![Basic Search](https://s3.amazonaws.com/s3.beckshome.com/20221029-dotnet-lucene-search-basic.jpeg)
+
+### Results Pagination
+![Results Paging](https://s3.amazonaws.com/s3.beckshome.com/20221104-dotnet-lucene-search-pagination.jpeg)
 
 # Features
 
 * Web-based full-text search on top of Lucene.Net search engine library
 * Autogeneration of waffle text records using Bogus data generator
+* Pagination of large result sets
 
 # Motivation and Credits
 
