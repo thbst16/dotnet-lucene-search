@@ -26,7 +26,7 @@ stages:
       displayName: Build the docker image
       inputs:
         command: build
-        Dockerfile: Dockerfile-ResultsPaging
+        Dockerfile: $(workingDirectory)/Dockerfile-ResultsPaging
         containerRegistry: dockerhub-connection
         repository: thbst16/dotnet-lucene-search
         tags: |
