@@ -9,7 +9,8 @@ The repository has 5 sub-projects, each representing a stage of the application 
 
 * <b>[Basic Search.](https://beckshome.com/2022/10/lucene-blazor-part-1-basic-search)</b> Creation of the basic search web application using Lucene.Net with waffle text source data seeded using the Bogus synthetic test data library.
 * <b>[Results Paging.](https://beckshome.com/2022/11/lucene-blazor-part-2-results-paging)</b> Order of magnitude increase in generated records and introduction of paging function to deal with paginated results.
-* <b>Search AutoComplete.</b> Coming soon...
+* <b>[Search AutoComplete.](https://beckshome.com/2022/11/lucene-blazor-part-3-auto-complete)</b> Uses the Lucene.Net.Suggest library in conjunction with Chris Saintly's [Blazored.Typeahead control](https://github.com/Blazored/Typeahead) to provide auto-complete functionality over the indexed waffle text data. 
+* <b>Faceting.</b> Coming soon...
 
 # Screens
 
@@ -24,10 +25,12 @@ The repository has 5 sub-projects, each representing a stage of the application 
 * Web-based full-text search on top of Lucene.Net search engine library
 * Autogeneration of waffle text records using Bogus data generator
 * Pagination of large result sets
+* Autocomplete lookup across the entire indexed dataset
 
 # Motivation and Credits
 
 Some starter guides for using Lucene.Net and ideas for this project are attributable to the sources below.
 
+* [Getting Started with Blazored Typeahead](https://chrissainty.com/getting-started-with-blazored-typeahead/)
 * [How to Implement Lucene.NET](https://code-maze.com/how-to-implement-lucene-dotnet/)
 * [Microsoft Azure Cognitive Search Tutorials](https://learn.microsoft.com/en-us/azure/search/tutorial-csharp-create-first-app)
