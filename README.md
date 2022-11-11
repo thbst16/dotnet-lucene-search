@@ -7,8 +7,8 @@
 
 The repository has 5 sub-projects, each representing a stage of the application buildout, correlating with the steps used to build out the Azure Cognitive search app in [Microsoft's online tutorial](https://learn.microsoft.com/en-us/azure/search/tutorial-csharp-create-first-app).
 
-* <b>Basic Search.</b> Creation of the basic search web application using Lucene.Net with waffle text source data seeded using the Bogus synthetic test data library.
-* <b>Results Paging.</b> Order of magnitude increase in generated records and introduction of paging function to deal with paginated results.
+* <b>[Basic Search.](https://beckshome.com/2022/10/lucene-blazor-part-1-basic-search)</b> Creation of the basic search web application using Lucene.Net with waffle text source data seeded using the Bogus synthetic test data library.
+* <b>[Results Paging.](https://beckshome.com/2022/11/lucene-blazor-part-2-results-paging)</b> Order of magnitude increase in generated records and introduction of paging function to deal with paginated results.
 * <b>Search AutoComplete.</b> Coming soon...
 
 # Screens
