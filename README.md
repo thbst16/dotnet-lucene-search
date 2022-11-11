@@ -20,6 +20,9 @@ The repository has 5 sub-projects, each representing a stage of the application 
 ### Results Pagination
 ![Results Paging](https://s3.amazonaws.com/s3.beckshome.com/20221104-dotnet-lucene-search-pagination.jpeg)
 
+### Auto Complete
+![Auto Complete](https://s3.amazonaws.com/s3.beckshome.com/20221111-dotnet-lucene-auto-complete.jpeg)
+
 # Features
 
 * Web-based full-text search on top of Lucene.Net search engine library
