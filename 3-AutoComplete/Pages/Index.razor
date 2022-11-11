@@ -1,0 +1,135 @@
+﻿@page "/"
+
+<PageTitle>Prose Search</PageTitle>
+
+<BSRow>
+    <BSCol Column="12" Padding="Padding.Small">    
+    </BSCol>
+</BSRow>
+
+<EditForm Model="@searchModel" OnValidSubmit="@HandleSearch">
+    <DataAnnotationsValidator />
+    <BSRow Padding="Padding.None">
+        <BSCol Column="4" PaddingStart="Padding.Small">
+            <BlazoredTypeahead SearchMethod="HandleTypeAhead"
+                @bind-Value="searchModel.SearchText"
+                Placeholder="Enter Prose Text...">
+                <SelectedTemplate Context="searchText">
+                    @((MarkupString)@searchText)
+                </SelectedTemplate>
+                <ResultTemplate Context="searchText">
+                    @((MarkupString)@searchText)
+                </ResultTemplate>
+            </BlazoredTypeahead>
+        </BSCol>
+        <BSCol Column="1" Padding="Padding.None">
+            <BSButton type="Submit" Color="BSColor.Primary" PaddingTopAndBottom="Padding.Small">Search</BSButton>
+        </BSCol>
+    </BSRow>
+</EditForm>
+
+@if(@SearchText!=String.Empty)
+{
+    <BSRow>
+        <BSCol Column="12" PaddingTop="Padding.Medium">
+            <div class="mb-12">
+                @if(@SearchResultsCount==1)
+                {
+                    <div><b>@SearchResultsCount Result</b></div>
+                }
+                else
+                {
+                    <div><b>@SearchResultsCount Results</b></div>
+                }
+            </div>
+        </BSCol>
+    </BSRow>
+}
+
+@if(@SearchResultsCount>0)
+{
+    <BSRow>
+        <BSCol Column="12" Padding="Padding.Small">    
+        </BSCol>
+    </BSRow>
+
+    <BSRow>
+        <BSCol Column="9">
+            <div class="mb-9">
+                <BSListGroup>
+                    @foreach (var result in @searchModel.CurrentPageSearchResults)
+                    {
+                        <BSListGroupItem>
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">@result.WaffleHead</h5>
+                            </div>
+                            <p class="mb-1">@result.WaffleBody</p>
+                        </BSListGroupItem>
+                    }
+                </BSListGroup>
+            </div>
+        </BSCol>
+    </BSRow>
+    @if(@PageCount>1)
+    {
+        <BSRow>
+            <BSCol Column="12" Padding="Padding.Small">  
+            </BSCol>
+        </BSRow>
+
+        <BSRow @onclick="UpdatePage">
+            <BSCol Column="9">
+                <div class="mb-9">
+                    <BSPagination Pages=@PageCount @bind-Value="Page"/>
+                </div>
+            </BSCol>
+        </BSRow>
+    }
+        
+    <BSRow>
+        <BSCol Column="12" Padding="Padding.Large">    
+        </BSCol>
+    </BSRow>
+}
+
+@code {
+    private SearchModel searchModel = new SearchModel();
+    
+    [Parameter]
+    public int Page {get; set;} = 1;
+    [Parameter]
+    public int PageCount {get; set;} = 0;
+    [Parameter]
+    public string SearchText {get; set;} = string.Empty; 
+    [Parameter]
+    public int SearchResultsCount {get; set;} = 0;
+
+    private void HandleSearch()
+    {
+        searchModel = SearchEngine.Search(searchModel.SearchText, 1);
+        SearchResultsCount = searchModel.ResultsCount;
+        PageCount = searchModel.PageCount;
+        SearchText = searchModel.SearchText;
+        Page = 1;
+    }
+
+    private async Task<IEnumerable<String>> HandleTypeAhead(string searchText)
+    {
+        List<String> SResult = SearchEngine.SearchAhead(searchText);
+        IEnumerable<String> AResult = new List<String>();
+        if (!SResult.Contains(searchText))
+        {
+            AResult = SResult.Prepend("<b>"+searchText+"</b>");
+        }
+        else
+        {
+            AResult = SResult;
+        }
+        return await Task.FromResult(AResult.Where(x => x.ToLower().Contains(searchText.ToLower())).ToList());
+    }
+
+    private void UpdatePage()
+    {
+        searchModel = SearchEngine.Search(searchModel.SearchText, Page);
+    }
+}
