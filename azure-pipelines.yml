@@ -8,7 +8,7 @@ pool:
 
 variables:
   tag: '$(Build.BuildId)'
-  workingDirectory: '$(System.DefaultWorkingDirectory)/3-AutoComplete/'
+  workingDirectory: '$(System.DefaultWorkingDirectory)/4-Faceting/'
 
 stages:
 - stage: Build
@@ -26,7 +26,7 @@ stages:
       displayName: Build the docker image
       inputs:
         command: build
-        Dockerfile: $(workingDirectory)/Dockerfile-AutoComplete
+        Dockerfile: $(workingDirectory)/Dockerfile-Faceting
         containerRegistry: dockerhub-connection
         repository: thbst16/dotnet-lucene-search
         tags: |
@@ -60,4 +60,4 @@ stages:
       inputs:
         azureSubscription: azure-connection
         appName: dotnet-lucene-search
-        multicontainerConfigFile: $(workingDirectory)/docker-compose-auto-complete.yml
+        multicontainerConfigFile: $(workingDirectory)/docker-compose-faceting.yml
