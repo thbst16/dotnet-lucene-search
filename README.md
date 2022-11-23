@@ -11,7 +11,7 @@ The repository has 5 sub-projects, each representing a stage of the application 
 * <b>[Results Paging.](https://beckshome.com/2022/11/lucene-blazor-part-2-results-paging)</b> Order of magnitude increase in generated records and introduction of paging function to deal with paginated results.
 * <b>[AutoComplete.](https://beckshome.com/2022/11/lucene-blazor-part-3-auto-complete)</b> Uses the Lucene.Net.Suggest library in conjunction with Chris Saintly's [Blazored.Typeahead control](https://github.com/Blazored/Typeahead) to provide auto-complete functionality over the indexed waffle text data. 
 * <b>[Faceting.](https://beckshome.com/2022/11/lucene-blazor-part-4-faceting)</b> Includes dedicated indexing for 2 facets (scholars and universities) and the ability to drill down on these 2 facets from the user interface.
-* <b>Highlighting.</b> Coming soon...
+* <b>[Highlighting.](https://beckshome.com/2022/11/lucene-blazor-part-5-highlighting)</b> Employs a simple utility function to highlight the searched text in the title and body of the returned Waffletext results.
 
 # Screens
 
@@ -27,6 +27,9 @@ The repository has 5 sub-projects, each representing a stage of the application 
 ### Faceting
 ![Faceting](https://s3.amazonaws.com/s3.beckshome.com/20221120-dotnet-lucene-faceting.jpeg)
 
+### Highlighting
+![Highlighting](https://s3.amazonaws.com/s3.beckshome.com/20221122-dotnet-lucene-highlighting.jpeg)
+
 # Features
 
 * Web-based full-text search on top of Lucene.Net search engine library
@@ -34,6 +37,7 @@ The repository has 5 sub-projects, each representing a stage of the application 
 * Pagination of large result sets
 * Autocomplete lookup across the entire indexed dataset
 * Faceted search qualification across multiple facets
+* Highlighting of search terms in returned results
 
 # Motivation and Credits
 
