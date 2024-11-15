@@ -1,9 +1,8 @@
 # dotnet-lucene-search
 [![Build Status](https://beckshome.visualstudio.com/dotnet-lucene-search/_apis/build/status/thbst16.dotnet-lucene-search?branchName=main)](https://beckshome.visualstudio.com/dotnet-lucene-search/_build/latest?definitionId=14&branchName=main)
 ![Docker Image Version (latest by date)](https://img.shields.io/docker/v/thbst16/dotnet-lucene-search?logo=docker)
-![Uptime Robot ratio (7 days)](https://img.shields.io/uptimerobot/ratio/7/m792951447-6396ddf7ae6c22d19364ee62?logo=http)
 
-[Dotnet Lucene Search](https://dotnet-lucene-search.azurewebsites.net/) is a [Blazor](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor)-based web application that exposes full text search capability built on top of the [Lucene.Net](https://lucenenet.apache.org/) search engine library. The application was built to fill the void in tutorials focused on command line interaction with Lucene and Blazor web apps focused on database persistence without full text search capabilities.
+[Dotnet Lucene Search](https://dotnet-lucene-search.wittycoast-850643a6.eastus.azurecontainerapps.io/) is a [Blazor](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor)-based web application that exposes full text search capability built on top of the [Lucene.Net](https://lucenenet.apache.org/) search engine library. The application was built to fill the void in tutorials focused on command line interaction with Lucene and Blazor web apps focused on database persistence without full text search capabilities.
 
 The repository has 5 sub-projects, each representing a stage of the application buildout, correlating with the steps used to build out the Azure Cognitive search app in [Microsoft's online tutorial](https://learn.microsoft.com/en-us/azure/search/tutorial-csharp-create-first-app).
 
