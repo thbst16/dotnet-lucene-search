@@ -22,6 +22,7 @@ stages:
       displayName: Build and push the docker image
       inputs:
         command: buildAndPush
+        Dockerfile: $(workingDirectory)/Dockerfile-Highlighting
         containerRegistry: dockerHub
         repository: thbst16/dotnet-lucene-search
         tags: |
