@@ -14,34 +14,19 @@ stages:
 - stage: Build
   displayName: Build image
   jobs:
-  
+
   - job: Build
     displayName: Build and push docker image
     steps:
-    - task: CmdLine@2
-      inputs:
-        script: dir
-        workingDirectory: $(workingDirectory) 
     - task: Docker@2
-      displayName: Build the docker image
+      displayName: Build and push the docker image
       inputs:
-        command: build
-        Dockerfile: $(workingDirectory)/Dockerfile-Highlighting
-        containerRegistry: dockerhub-connection
+        command: buildAndPush
+        containerRegistry: dockerHub
         repository: thbst16/dotnet-lucene-search
         tags: |
           $(Build.BuildId)
           latest
-        arguments: --pull
-    - task: Docker@2
-      displayName: Push the image to Dockerhub
-      inputs:
-       command: push
-       containerRegistry: dockerhub-connection
-       repository: thbst16/dotnet-lucene-search
-       tags: |
-         $(Build.BuildId)
-         latest
 
 - stage: Deploy
   displayName: Deploy docker container
@@ -49,15 +34,12 @@ stages:
   jobs:
 
   - job: Deploy
-    displayName: Deploy the container to Azure Web App using Docker Compose
+    displayName: Deploy the container to Azure Container Apps
     steps:
-    - task: CmdLine@2
-      inputs:
-        script: dir
-        workingDirectory: $(workingDirectory) 
-    - task: AzureWebAppContainer@1
+    - task: AzureContainerApps@1
       displayName: Deploy the docker image
       inputs:
-        azureSubscription: azure-connection
-        appName: dotnet-lucene-search
-        multicontainerConfigFile: $(workingDirectory)/docker-compose-highlighting.yml
+        azureSubscription: becksAzureRM
+        containerAppName: dotnet-lucene-search
+        resourceGroup: beckshome-container-apps-rg
+        imageToDeploy: thbst16/dotnet-lucene-search:$(Build.BuildId)
