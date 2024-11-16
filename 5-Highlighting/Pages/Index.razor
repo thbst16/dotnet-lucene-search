@@ -130,13 +130,27 @@
                             {
                                 <BSListGroupItem>
                                     <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1">@((MarkupString)@result.WaffleHead)</h5>
+                                        @if (result.WaffleHead != null)
+                                        {
+                                            <h5 class="mb-1">@((MarkupString)result.WaffleHead)</h5>
+                                        }
+                                        else
+                                        {
+                                            <h5 class="mb-1">No header available</h5>
+                                        }
                                     </div>
                                     <div>
                                         <BSBadge Color="BSColor.Primary">@result.WaffleScholar</BSBadge>
                                         <BSBadge Color="BSColor.Secondary">@result.WaffleUniversity</BSBadge>
                                     </div>
-                                    <p class="mb-1">@((MarkupString)@result.WaffleBody)</p>
+                                    @if (result.WaffleBody != null)
+                                    {
+                                        <p class="mb-1">@((MarkupString)result.WaffleBody)</p>
+                                    }
+                                    else
+                                    {
+                                        <p class="mb-1">No body available</p>
+                                    }
                                 </BSListGroupItem>
                             }
                         </BSListGroup>
