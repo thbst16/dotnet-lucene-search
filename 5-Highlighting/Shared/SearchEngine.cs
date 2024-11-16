@@ -158,6 +158,7 @@ namespace search.Shared
 
                 returnModel.FacetResults = results;
 
+                dirReader.Dispose();
                 return returnModel;
             }
         }
