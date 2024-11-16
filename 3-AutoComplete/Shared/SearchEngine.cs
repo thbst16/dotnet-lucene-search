@@ -15,7 +15,7 @@ namespace search.Shared
 {
     public class SearchEngine{
         public static List<WaffleText> Data {get; set;} = new List<WaffleText>();
-        private static RAMDirectory _directory;
+        private static RAMDirectory _directory = new RAMDirectory();
         public static IndexWriter Writer { get; set; }
 
         public static void GetData(int Rand, int WaffleCount)
