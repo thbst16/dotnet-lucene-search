@@ -6,6 +6,6 @@ namespace search.Shared
         [Required]
         public string SearchText {get; set;} = string.Empty;
         public int ResultsCount {get; set;}
-        public List<WaffleText> SearchResults {get; set;}
+        public List<WaffleText> SearchResults {get; set;} = new List<WaffleText>();
     }
 }
