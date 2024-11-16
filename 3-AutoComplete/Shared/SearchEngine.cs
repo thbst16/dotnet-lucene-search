@@ -14,7 +14,7 @@ using System.Text.RegularExpressions;
 namespace search.Shared
 {
     public class SearchEngine{
-        public static List<WaffleText> Data {get; set;}
+        public static List<WaffleText> Data {get; set;} = new List<WaffleText>();
         private static RAMDirectory _directory;
         public static IndexWriter Writer { get; set; }
 
