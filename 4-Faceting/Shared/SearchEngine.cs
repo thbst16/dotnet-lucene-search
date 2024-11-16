@@ -89,7 +89,7 @@ namespace search.Shared
             _facetDirectory?.Dispose();
         }
 
-        public static SearchModel FacetedSearch(string input, int page, List<string> scholarDrillDowns = null, List<string> universityDrillDowns = null)
+        public static SearchModel FacetedSearch(string input, int page, List<string>? scholarDrillDowns = null, List<string>? universityDrillDowns = null)
         {
             const LuceneVersion lv = LuceneVersion.LUCENE_48;
             Analyzer a = new StandardAnalyzer(lv);
