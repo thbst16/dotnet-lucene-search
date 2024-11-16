@@ -13,7 +13,7 @@ namespace search.Shared
     public class SearchEngine{
         public static List<WaffleText> Data {get; set;} = new List<WaffleText>();
         private static RAMDirectory _directory = new RAMDirectory();
-        public static IndexWriter Writer { get; set; }
+        public static IndexWriter? Writer { get; set; }
 
         public static void GetData()
         {
@@ -68,8 +68,8 @@ namespace search.Shared
 
         public static void Dispose()
         {
-            Writer.Dispose();
-            _directory.Dispose();
+            Writer?.Dispose();
+            _directory?.Dispose();
         }
 
         public static List<WaffleText> Search(string input)

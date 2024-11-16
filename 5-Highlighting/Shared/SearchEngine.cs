@@ -21,8 +21,8 @@ namespace search.Shared
         public static List<WaffleText> Data {get; set;} = new List<WaffleText>();
         private static RAMDirectory _indexDirectory = new RAMDirectory();
         private static RAMDirectory _facetDirectory = new RAMDirectory();
-        public static IndexWriter indexWriter { get; set; }
-        public static DirectoryTaxonomyWriter taxoWriter { get; set; }
+        public static IndexWriter? indexWriter { get; set; }
+        public static DirectoryTaxonomyWriter? taxoWriter { get; set; }
         private static FacetsConfig facetConfig = new FacetsConfig();
 
 
@@ -84,10 +84,10 @@ namespace search.Shared
 
         public static void Dispose()
         {
-            indexWriter.Dispose();
-            taxoWriter.Dispose();
-            _indexDirectory.Dispose();
-            _facetDirectory.Dispose();
+            indexWriter?.Dispose();
+            taxoWriter?.Dispose();
+            _indexDirectory?.Dispose();
+            _facetDirectory?.Dispose();
         }
 
         public static SearchModel FacetedSearch(string input, int page, List<string> scholarDrillDowns = null, List<string> universityDrillDowns = null)
