@@ -16,7 +16,12 @@ var cfgBuilder = new ConfigurationBuilder().AddJsonFile($"appsettings.json", tru
 var config = cfgBuilder.Build();
 
 // Search engine setup
-SearchEngine.GetData(Int32.Parse(config["BogusConfig:Rand"]), Int32.Parse(config["BogusConfig:WaffleCount"]));
+var randValue = config["BogusConfig:Rand"];
+var waffleCountValue = config["BogusConfig:WaffleCount"];
+if (randValue != null && waffleCountValue != null)
+{
+    SearchEngine.GetData(Int32.Parse(randValue), Int32.Parse(waffleCountValue));
+}
 SearchEngine.Index();
 
 var app = builder.Build();
