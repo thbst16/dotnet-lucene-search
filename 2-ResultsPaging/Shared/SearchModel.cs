@@ -4,7 +4,7 @@ namespace search.Shared
 {
     public class SearchModel{
         [Required]
-        public string SearchText {get; set;}
+        public string SearchText {get; set;} = string.Empty;
         public int ResultsCount {get; set;}
         public int PageCount {get; set;}
         public int CurrentPage {get; set;}
