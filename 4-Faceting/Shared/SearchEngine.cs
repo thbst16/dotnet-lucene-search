@@ -178,9 +178,9 @@ namespace search.Shared
             {
                 returnModel.Add(result.Key);
             }
-
-            return returnModel;
+            
             dirReader.Dispose();
+            return returnModel;
         }
 
         // Lucene supports escapting the following chars: + - && || ! ( ) { } [ ] ^ " ~ * ? : \
